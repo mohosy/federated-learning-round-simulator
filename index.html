@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Federated Learning Round Simulator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel">
+        <p class="eyebrow">ML Systems</p>
+        <h1>Federated Learning Round Simulator</h1>
+        <p class="desc">Model FedAvg behavior across heterogeneous clients, dropouts, and adversarial updates.</p>
+
+        <div class="card">
+          <h2>Cluster Settings</h2>
+          <label>Clients
+            <input id="clientsInput" type="range" min="8" max="80" step="1" value="24" />
+            <span id="clientsValue">24</span>
+          </label>
+          <label>Client Dropout
+            <input id="dropoutInput" type="range" min="0" max="0.6" step="0.01" value="0.18" />
+            <span id="dropoutValue">0.18</span>
+          </label>
+          <label>Adversarial %
+            <input id="advInput" type="range" min="0" max="0.3" step="0.01" value="0.08" />
+            <span id="advValue">0.08</span>
+          </label>
+          <label>Local Epochs
+            <input id="epochsInput" type="range" min="1" max="10" step="1" value="4" />
+            <span id="epochsValue">4</span>
+          </label>
+        </div>
+
+        <div class="card">
+          <h2>Actions</h2>
+          <div class="row">
+            <button id="stepBtn">Run Round</button>
+            <button id="autoBtn">Auto Run</button>
+          </div>
+          <button id="resetBtn">Reset Simulation</button>
+        </div>
+
+        <div class="card metrics">
+          <h2>Metrics</h2>
+          <p>Round: <strong id="roundText">0</strong></p>
+          <p>Global Loss: <strong id="lossText">1.000</strong></p>
+          <p>Active Clients: <strong id="activeText">0</strong></p>
+          <p>Convergence Score: <strong id="convText">0%</strong></p>
+        </div>
+      </section>
+
+      <section class="viz">
+        <article class="card">
+          <h2>Global Loss Curve</h2>
+          <canvas id="lossChart" width="980" height="300"></canvas>
+        </article>
+        <article class="card">
+          <h2>Client Update Distribution</h2>
+          <canvas id="updateChart" width="980" height="250"></canvas>
+        </article>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
