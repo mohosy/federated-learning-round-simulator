@@ -15,3 +15,5 @@ A frontend simulator for federated optimization rounds with client heterogeneity
 
 ## Run
 Open `index.html` in your browser.
+
+Review cycle seed: 2026 code review workflow entry.
